@@ -36,7 +36,7 @@ public class LoadSaveScene extends PixelScene {
 
 	private static final String TXT_TITLE	= "Save/Load ";
 	
-	private static final String GAME_FOLDER	= "SoftPixelDungeon";
+	private static final String GAME_FOLDER	= "UnShatteredPixelDungeon";
 	private static final String SAVE_FOLDER	= "saves";	
 	private static final String SD_ROOT = Environment.getExternalStorageDirectory().toString();
 
