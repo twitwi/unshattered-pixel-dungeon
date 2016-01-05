@@ -83,7 +83,7 @@ public class LoadSaveScene extends PixelScene {
 		BitmapText title = PixelScene.createText( TXT_TITLE + showClassName, 9 );
 		title.hardlight( Window.TITLE_COLOR );
 		title.measure();
-		title.x = align( (w - title.width()) / 2 );
+		title.x = (w - title.width()) / 2;
 		title.y = BUTTON_PADDING;
 		add( title );
 
@@ -95,7 +95,7 @@ public class LoadSaveScene extends PixelScene {
 		BitmapText subTitle = PixelScene.createText( "Currently " + currentProgress, 6 );
 		subTitle.hardlight( Window.TITLE_COLOR );
 		subTitle.measure();
-		subTitle.x = align( (w - title.width()) / 2 );
+		subTitle.x = (w - title.width()) / 2;
 		subTitle.y =  (BUTTON_HEIGHT / 2) + BUTTON_PADDING ;
 		add( subTitle );
 		
@@ -340,8 +340,8 @@ public class LoadSaveScene extends PixelScene {
 			if (secondary.text().length() > 0) {
 				text.y = y + (height - text.height() - secondary.baseLine()) / 2;
 				
-				secondary.x = align( x + (width - secondary.width()) / 2 );
-				secondary.y = align( text.y + text.height() ); 
+				secondary.x = x + (width - secondary.width()) / 2;
+				secondary.y = text.y + text.height();
 			} else {
 				text.y = y + (height - text.baseLine()) / 2;
 			}
