@@ -46,6 +46,7 @@ public class InterlevelScene extends PixelScene {
 	private static final String TXT_DESCENDING	= "Descending...";
 	private static final String TXT_ASCENDING	= "Ascending...";
 	private static final String TXT_LOADING		= "Loading...";
+	private static final String TXT_SAVING      = "Saving...";
 	private static final String TXT_RESURRECTING= "Resurrecting...";
 	private static final String TXT_RETURNING	= "Returning...";
 	private static final String TXT_FALLING		= "Falling...";
@@ -57,7 +58,7 @@ public class InterlevelScene extends PixelScene {
 														"it may mean this save game is corrupted. Sorry about that.";
 	
 	public static enum Mode {
-		DESCEND, ASCEND, CONTINUE, RESURRECT, RETURN, FALL, RESET, NONE
+		DESCEND, ASCEND, CONTINUE, SAVE, RESURRECT, RETURN, FALL, RESET, NONE
 	};
 	public static Mode mode;
 	
@@ -93,6 +94,9 @@ public class InterlevelScene extends PixelScene {
 			break;
 		case CONTINUE:
 			text = TXT_LOADING;
+			break;
+		case SAVE:
+			text = TXT_SAVING;
 			break;
 		case RESURRECT:
 			text = TXT_RESURRECTING;
@@ -133,6 +137,9 @@ public class InterlevelScene extends PixelScene {
 						ascend();
 						break;
 					case CONTINUE:
+						restore();
+						break;
+					case SAVE:
 						restore();
 						break;
 					case RESURRECT:
