@@ -22,6 +22,7 @@ package com.shatteredpixel.shatteredpixeldungeon.windows;
 
 import java.io.IOException;
 
+import com.shatteredpixel.shatteredpixeldungeon.scenes.LoadSaveScene;
 import com.shatteredpixel.shatteredpixeldungeon.ui.*;
 import com.watabou.noosa.Game;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
@@ -40,7 +41,8 @@ public class WndGame extends Window {
 	private static final String TXT_MENU		= "Main Menu";
 	private static final String TXT_EXIT		= "Exit Game";
 	private static final String TXT_RETURN		= "Return to Game";
-	
+	private static final String TXT_LOADSAVE	= "Load/Save";
+
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;
 	private static final int GAP		= 2;
@@ -108,6 +110,7 @@ public class WndGame extends Window {
 						Game.switchScene(TitleScene.class);
 					}
 				},
+
 				// Quit
 				new RedButton( TXT_EXIT ) {
 					@Override
@@ -116,6 +119,20 @@ public class WndGame extends Window {
 					}
 				}
 		);
+
+		// Load/Save menu
+		String showClassName = LoadSaveScene.capitalizeWord(Dungeon.hero.heroClass.title());
+		addButton(new RedButton(TXT_LOADSAVE + " " + showClassName) {
+			@Override
+			protected void onClick() {
+				try {
+					Dungeon.saveAll();
+				} catch (IOException e) {
+					//
+				}
+				Game.switchScene(LoadSaveScene.class);
+			}
+		});
 
 		// Cancel
 		addButton( new RedButton( TXT_RETURN ) {
