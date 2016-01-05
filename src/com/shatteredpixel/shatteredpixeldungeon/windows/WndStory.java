@@ -120,7 +120,20 @@ public class WndStory extends Window {
 			shadow.visible = chrome.visible = tf.visible = true;
 		}
 	}
-	
+
+	public static void showChapter(String text) {
+		if (text != null) {
+			WndStory wnd = new WndStory( text );
+			if ((wnd.delay = 0.6f) > 0) {
+				wnd.chrome.visible = wnd.tf.visible = false;
+			}
+
+			Game.scene().add( wnd );
+
+			//Dungeon.chapters.add( id );
+		}
+	}
+
 	public static void showChapter( int id ) {
 		
 		if (Dungeon.chapters.contains( id )) {
